@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  service1:
+    image: nginx:latest
+    ports:
+      - 8080:80
+    volumes:
+      - ./app:/usr/share/nginx/html
+
+  service2:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=mydb
+
+networks:
+  network1:
+    # Configuración de la red 1
+
+volumes:
+  volume1:
+    # Configuración del volumen 1
