@@ -4,20 +4,29 @@ services:
   service1:
     image: nginx:latest
     ports:
-      - 8080:80
+      - "8080:80"
     volumes:
       - ./app:/usr/share/nginx/html
+    networks:
+      - frontend_network
 
   service2:
     image: mysql:latest
     environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=mydb
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mydb
+    networks:
+      - backend_network
+    volumes:
+      - my_volume:/var/lib/mysql
 
 networks:
-  network1:
-    # Configuración de la red 1
+  frontend_network:
+    driver: bridge
+
+  backend_network:
+    driver: bridge
 
 volumes:
-  volume1:
-    # Configuración del volumen 1
+  my_volume:
+
