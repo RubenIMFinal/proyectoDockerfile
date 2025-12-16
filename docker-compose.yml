@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: ./backend
+    container_name: api_backend
+    ports:
+      - "8000:8000"   
+    networks:
+      - net
+
+  frontend:
+    build: ./frontend
+    container_name: web_frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
+
