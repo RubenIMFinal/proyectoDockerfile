@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+
+# SQLite / datos persistentes
+backend/data/
+
+# Entornos
+.env

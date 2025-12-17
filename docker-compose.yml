@@ -4,6 +4,8 @@ services:
     container_name: api_backend
     ports:
       - "8000:8000"   
+    volumes:
+      - ./backend/data:/app/data    #para la persistencia de datos.
     networks:
       - net
 
